@@ -1,0 +1,194 @@
+// variables for sizing and transition
+
+$outer_radius: 850px;
+$inner_radius: 550px;
+$translate_dist: 350px;
+$outer_radius_768px: 750px;
+$inner_radius_768px: 550px;
+$translate_dist_768px: 325px;
+$outer_radius_480px: 550px;
+$inner_radius_480px: 400px;
+$translate_dist_480px: 235px;
+
+// for large screen
+.rotational_slider-main {
+  width: 500px;
+  height: 350px;
+  background-color: transparent;
+  border-color: #eee;
+  border-radius: 10px;
+  border-width: 2px;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+
+  .item {
+    align-self: center;
+    justify-self: center;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    transform: rotate(0deg) translate($translate_dist) rotate(0deg);
+  }
+
+  .outer-circle {
+    align-self: center;
+    justify-self: center;
+    width: $outer_radius;
+    height: $outer_radius;
+    background: #ffaf66;
+    border-radius: 50%;
+  }
+
+  .inner-circle {
+    align-self: center;
+    justify-self: center;
+    width: $inner_radius;
+    height: $inner_radius;
+    background: #cdecd1;
+    border-radius: 50%;
+  }
+
+  @keyframes spinAround {
+    12.5%,
+    25% {
+      -webkit-transform: rotate(90deg) translate($translate_dist) rotate(-90deg);
+    }
+    37.5%,
+    50% {
+      -webkit-transform: rotate(180deg) translate($translate_dist)
+        rotate(-180deg);
+    }
+    62.5%,
+    75% {
+      -webkit-transform: rotate(270deg) translate($translate_dist)
+        rotate(-270deg);
+    }
+    87.5%,
+    100% {
+      -webkit-transform: rotate(360deg) translate($translate_dist)
+        rotate(-360deg);
+    }
+  }
+
+  .item {
+    animation: spinAround 6s linear infinite;
+  }
+  * {
+    grid-column: 1;
+    grid-row: 1;
+  }
+}
+
+// breakpoint-1
+
+@media (max-width: 992px) {
+  .rotational_slider-main {
+    width: 250px;
+    height: 150px;
+    margin: auto;
+
+    .item {
+      width: 200px;
+      height: 200px;
+      transform: rotate(0deg) translate($translate_dist_768px) rotate(0deg);
+    }
+
+    .outer-circle {
+      width: $outer_radius_768px;
+      height: $outer_radius_768px;
+    }
+
+    .inner-circle {
+      width: $inner_radius_768px;
+      height: $inner_radius_768px;
+    }
+
+    @keyframes spinAround {
+      12.5%,
+      25% {
+        -webkit-transform: rotate(90deg) translate($translate_dist_768px)
+          rotate(-90deg);
+      }
+      37.5%,
+      50% {
+        -webkit-transform: rotate(180deg) translate($translate_dist_768px)
+          rotate(-180deg);
+      }
+      62.5%,
+      75% {
+        -webkit-transform: rotate(270deg) translate($translate_dist_768px)
+          rotate(-270deg);
+      }
+      87.5%,
+      100% {
+        -webkit-transform: rotate(360deg) translate($translate_dist_768px)
+          rotate(-360deg);
+      }
+    }
+
+    .item {
+      animation: spinAround 6s linear infinite;
+    }
+    * {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+}
+
+// breakpoint-2
+@media (max-width: 480px) {
+  .rotational_slider-main {
+    width: 150px;
+    height: 100px;
+    margin: auto;
+
+    .item {
+      width: 150px;
+      height: 150px;
+      transform: rotate(0deg) translate($translate_dist_480px) rotate(0deg);
+    }
+
+    .outer-circle {
+      width: $outer_radius_480px;
+      height: $outer_radius_480px;
+    }
+
+    .inner-circle {
+      width: $inner_radius_480px;
+      height: $inner_radius_480px;
+    }
+
+    @keyframes spinAround {
+      12.5%,
+      25% {
+        -webkit-transform: rotate(90deg) translate($translate_dist_480px)
+          rotate(-90deg);
+      }
+      37.5%,
+      50% {
+        -webkit-transform: rotate(180deg) translate($translate_dist_480px)
+          rotate(-180deg);
+      }
+      62.5%,
+      75% {
+        -webkit-transform: rotate(270deg) translate($translate_dist_480px)
+          rotate(-270deg);
+      }
+      87.5%,
+      100% {
+        -webkit-transform: rotate(360deg) translate($translate_dist_480px)
+          rotate(-360deg);
+      }
+    }
+
+    .item {
+      animation: spinAround 6s linear infinite;
+    }
+    * {
+      grid-column: 1;
+      grid-row: 1;
+    }
+  }
+}
