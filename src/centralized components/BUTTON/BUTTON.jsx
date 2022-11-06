@@ -6,7 +6,13 @@ const BUTTON_TYPE_CLASSES = {
   white: "white", //creates button in white background
 };
 
-const BUTTON = ({ children, buttonType, navPath, ...otherProps }) => {
+const BUTTON = ({
+  children,
+  buttonType,
+  navPath = null,
+  click,
+  ...otherProps
+}) => {
   const navigate = useNavigate();
 
   const navigatePage = () => navigate(`navPath`);
@@ -14,7 +20,7 @@ const BUTTON = ({ children, buttonType, navPath, ...otherProps }) => {
     <button
       className={`button-container ${BUTTON_TYPE_CLASSES[buttonType]}`}
       {...otherProps}
-      onClick={navigatePage}
+      onClick={navPath ? navigatePage : click}
     >
       {children}
     </button>
