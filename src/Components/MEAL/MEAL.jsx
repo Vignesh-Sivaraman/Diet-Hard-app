@@ -11,7 +11,7 @@ const MEAL = ({ meal }) => {
   const getImage = async () => {
     try {
       let response = await axios.get(
-        `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=3382bef24374486fb5df95c19672bb47&includeNutrition=false`
+        `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=06775893738749e4ae344f157b2ba83c&includeNutrition=false`
       );
       setImageUrl(response.data.image);
     } catch (error) {

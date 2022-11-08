@@ -15,10 +15,9 @@ const INSTANT_DIET = () => {
   const getMealData = async () => {
     try {
       let response = await axios.get(
-        `https://api.spoonacular.com/mealplanner/generate?apiKey=3382bef24374486fb5df95c19672bb47&timeFrame=day&targetCalories=${calories}`
+        `https://api.spoonacular.com/mealplanner/generate?apiKey=06775893738749e4ae344f157b2ba83c&timeFrame=day&targetCalories=${calories}`
       );
       setMealData(response.data);
-      console.table(response.data);
     } catch (error) {
       console.error(error);
     }
@@ -32,7 +31,7 @@ const INSTANT_DIET = () => {
           placeholder="Calories (e.g. 2000)"
           onChange={handleChange}
         />
-        <BUTTON buttonType={"contrast"} click={getMealData}>
+        <BUTTON buttonType={"contrast"} onClick={getMealData}>
           Get Daily Meal Plan
         </BUTTON>
         {mealData && <MEAL_LIST mealData={mealData} />}

@@ -1,6 +1,7 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import { Link } from "react-router-dom";
 import logo from "../../Assets/Images/Diet_Hard_Logo.svg";
 import BUTTON from "../../centralized components/BUTTON/BUTTON";
 import "./LANDING_TOPBAR.scss";
@@ -23,12 +24,17 @@ function LANDING_TOPBAR() {
             <Nav.Link>About us</Nav.Link>
             <Nav.Link>Instant Diet</Nav.Link>
             <div className="topbtn">
-              <BUTTON type="button" navPath={"/entry"} buttonType={"contrast"}>
-                Login
-              </BUTTON>
-              <BUTTON type="button" navPath={"/entry"} buttonType={"contrast"}>
-                Sign Up
-              </BUTTON>
+              <Link to="/sign-in" style={{ textDecoration: "none" }}>
+                <BUTTON type="button" buttonType={"contrast"}>
+                  Login
+                </BUTTON>
+              </Link>
+
+              <Link to="/sign-up" style={{ textDecoration: "none" }}>
+                <BUTTON type="button" buttonType={"contrast"}>
+                  sign up
+                </BUTTON>
+              </Link>
             </div>
           </Nav>
         </Navbar.Collapse>

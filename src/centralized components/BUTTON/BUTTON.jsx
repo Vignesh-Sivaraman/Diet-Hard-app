@@ -9,18 +9,13 @@ const BUTTON_TYPE_CLASSES = {
 const BUTTON = ({
   children,
   buttonType,
-  navPath = null,
-  click,
+
   ...otherProps
 }) => {
-  const navigate = useNavigate();
-
-  const navigatePage = () => navigate(`navPath`);
   return (
     <button
       className={`button-container ${BUTTON_TYPE_CLASSES[buttonType]}`}
       {...otherProps}
-      onClick={navPath ? navigatePage : click}
     >
       {children}
     </button>
