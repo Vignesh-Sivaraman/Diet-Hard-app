@@ -6,28 +6,28 @@ import BUTTON from "../../centralized components/BUTTON/BUTTON";
 import "./MEAL.scss";
 
 const MEAL = ({ meal }) => {
-  const [imageUrl, setImageUrl] = useState("");
+  // const [imageUrl, setImageUrl] = useState("");
 
-  const getImage = async () => {
-    try {
-      let response = await axios.get(
-        `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=06775893738749e4ae344f157b2ba83c&includeNutrition=false`
-      );
-      setImageUrl(response.data.image);
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  // const getImage = async () => {
+  //   try {
+  //     let response = await axios.get(
+  //       `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=06775893738749e4ae344f157b2ba83c&includeNutrition=false`
+  //     );
+  //     setImageUrl(response.data.image);
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    getImage();
-  }, [meal.id]);
+  // useEffect(() => {
+  //   getImage();
+  // }, [meal.id]);
 
   return (
     <div className="col-lg-4 meal">
       <Card
-        className="text-center m-3 p-3"
-        style={{ width: "20rem", minHeight: "525px" }}
+        className="text-center m-5 p-3"
+        style={{ width: "80%", minHeight: "525px" }}
       >
         <Card.Title className="my-3 py-3" style={{ minHeight: "100px" }}>
           {meal.title}
@@ -35,8 +35,8 @@ const MEAL = ({ meal }) => {
         <Card.Img
           className="mb-3 p-3"
           variant="top"
-          src={imageUrl}
-          style={{ width: "100%", height: "200px" }}
+          src={meal.imageURL}
+          style={{ width: "100%", height: "250px" }}
         />
 
         <ListGroup className="list-group-flush">
@@ -46,7 +46,15 @@ const MEAL = ({ meal }) => {
           <ListGroup.Item>Number of servings: {meal.servings}</ListGroup.Item>
         </ListGroup>
         <div className="recipebtn">
-          <BUTTON buttonType={"contrast"}>Go to Recipe</BUTTON>
+          <a
+            href={meal.sourceUrl}
+            style={{ textDecoration: "none" }}
+            target="blank"
+          >
+            <BUTTON buttonType={"contrast"} href={meal.sourceUrl}>
+              Go to Recipe
+            </BUTTON>
+          </a>
         </div>
       </Card>
     </div>

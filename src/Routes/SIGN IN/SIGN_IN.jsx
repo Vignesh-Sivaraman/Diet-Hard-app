@@ -48,7 +48,7 @@ const SIGN_IN = () => {
       <div className="forms-container">
         <div className="signin-signup">
           <FormikProvider value={formik}>
-            <form className="sign-in-form">
+            <form className="sign-in-form" onSubmit={formik.handleSubmit}>
               <Link to="/">
                 <img
                   width="100px"

@@ -93,14 +93,6 @@ form.sign-in-form {
   position: relative;
 }
 
-.input-field i {
-  text-align: center;
-  line-height: 55px;
-  color: #acacac;
-  transition: 0.5s;
-  font-size: 1.1rem;
-}
-
 .input-field input {
   background: none;
   outline: none;
@@ -109,6 +101,7 @@ form.sign-in-form {
   font-weight: 600;
   font-size: 1.1rem;
   color: #333;
+  width: 350px;
 }
 
 .input-field input::placeholder {

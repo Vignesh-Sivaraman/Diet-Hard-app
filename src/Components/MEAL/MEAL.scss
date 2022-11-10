@@ -3,7 +3,11 @@
   text-align: center;
   .recipebtn {
     margin-top: 1rem;
+    a {
+      max-width: 50px;
+    }
   }
+
   .button-container {
     width: 50px;
     margin: auto;

@@ -95,18 +95,8 @@ form.sign-in-form {
   margin: 10px 0;
   height: 55px;
   border-radius: 55px;
-  display: grid;
-  grid-template-columns: 15% 85%;
   padding: 0 0.4rem;
   position: relative;
-}
-
-.input-field i {
-  text-align: center;
-  line-height: 55px;
-  color: #acacac;
-  transition: 0.5s;
-  font-size: 1.1rem;
 }
 
 .input-field input {
@@ -117,6 +107,8 @@ form.sign-in-form {
   font-weight: 600;
   font-size: 1.1rem;
   color: #333;
+  width: 100%;
+  border-radius: 55px;
 }
 
 .input-field input::placeholder {

@@ -7,6 +7,8 @@ import log from "../../Assets/Images/log.svg";
 import BUTTON from "../../centralized components/BUTTON/BUTTON";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import { env } from "../../config/config";
+import axios from "axios";
 
 const SIGN_UP = () => {
   const formik = useFormik({
@@ -27,6 +29,10 @@ const SIGN_UP = () => {
     onSubmit: async (values) => {
       try {
         console.log(values);
+        let user = await axios.post(`${env.api}/users/register`, values);
+        if (user.status === 200) {
+          alert(user.data.message);
+        }
       } catch (error) {
         alert(
           `Error Code: ${error.response.status}- ${error.response.data.message}`
@@ -62,7 +68,6 @@ const SIGN_UP = () => {
               <h2 className="title">Sign up</h2>
 
               <div className="input-field">
-                <i className="fas fa-envelope"></i>
                 <input
                   type="email"
                   value={formik.values.email}
@@ -75,7 +80,6 @@ const SIGN_UP = () => {
                 {formik.errors.email}
               </div>
               <div className="input-field mb-3">
-                <i className="fas fa-lock"></i>
                 <input
                   type="password"
                   value={formik.values.password}
@@ -88,7 +92,6 @@ const SIGN_UP = () => {
                 {formik.errors.password}
               </div>
               <div className="input-field mb-3">
-                <i className="fas fa-lock"></i>
                 <input
                   type="password"
                   value={formik.values.confirmPassword}
