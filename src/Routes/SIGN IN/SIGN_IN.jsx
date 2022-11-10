@@ -5,10 +5,13 @@ import { FormikProvider, useFormik } from "formik";
 import signInImage from "../../Assets/Images/sign_in.svg";
 import log from "../../Assets/Images/log.svg";
 import BUTTON from "../../centralized components/BUTTON/BUTTON";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import axios from "axios";
+import { env } from "../../config/config";
 
 const SIGN_IN = () => {
+  const navigate = useNavigate();
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -25,10 +28,15 @@ const SIGN_IN = () => {
     },
     onSubmit: async (values) => {
       try {
-        console.log(values);
-      } catch (error) {
+        let loginData = await axios.post(`${env.api}/users/signin`, values);
+
+        if (loginData.status === 200) {
+          window.localStorage.setItem("app-token", loginData.data.token);
+          navigate("/home");
+        }
+      } catch (err) {
         alert(
-          `Error Code: ${error.response.status}- ${error.response.data.message}`
+          `Error Code: ${err.response.status}- ${err.response.data.message}`
         );
       }
     },
@@ -86,7 +94,10 @@ const SIGN_IN = () => {
               <div className="fw-bold" style={{ color: "orange" }}>
                 {formik.errors.password}
               </div>
-              <p className="forpassword mb-2">Forgot Password?</p>
+              <Link style={{ textDecoration: "none" }} to="/forpass">
+                <p className="forpassword mb-2">Forgot Password?</p>
+              </Link>
+
               <div className="mb-1">
                 <BUTTON type="submit" buttonType={"contrast"}>
                   Login
@@ -105,7 +116,11 @@ const SIGN_IN = () => {
               Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis,
               ex ratione. Aliquid!
             </p>
-            <Link className="mb-1" style={{ textDecoration: "none" }}>
+            <Link
+              to="/sign-up"
+              className="mb-1"
+              style={{ textDecoration: "none" }}
+            >
               <BUTTON type="submit" buttonType={"white"}>
                 sign up
               </BUTTON>

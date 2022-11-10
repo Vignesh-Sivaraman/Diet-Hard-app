@@ -3,4 +3,4 @@ export const env = {
 };
 
 // "http://localhost:3001"
-// "https://diet-hard-server.herokuapp.com/"
+// "https://diet-hard-server.herokuapp.com"

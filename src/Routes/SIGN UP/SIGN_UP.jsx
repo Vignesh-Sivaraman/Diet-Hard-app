@@ -27,15 +27,18 @@ const SIGN_UP = () => {
       return errors;
     },
     onSubmit: async (values) => {
+      if (values.password !== values.confirmPassword) {
+        alert("passwords do not match");
+        return;
+      }
       try {
-        console.log(values);
         let user = await axios.post(`${env.api}/users/register`, values);
         if (user.status === 200) {
           alert(user.data.message);
         }
-      } catch (error) {
+      } catch (err) {
         alert(
-          `Error Code: ${error.response.status}- ${error.response.data.message}`
+          `Error Code: ${err.response.status}- ${err.response.data.message}`
         );
       }
     },
@@ -134,7 +137,11 @@ const SIGN_UP = () => {
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum
               laboriosam ad deleniti.
             </p>
-            <Link className="mb-1" style={{ textDecoration: "none" }}>
+            <Link
+              to="/sign-in"
+              className="mb-1"
+              style={{ textDecoration: "none" }}
+            >
               <BUTTON type="submit" buttonType={"white"}>
                 sign in
               </BUTTON>

@@ -2,6 +2,7 @@ import "./LANDING_PAGE.scss";
 
 import React, { Suspense, lazy } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 
 const LANDING_TOPBAR = lazy(() =>
   import("../../Components/LANDING TOP BAR/LANDING_TOPBAR")
@@ -64,9 +65,11 @@ const LANDING_PAGE = () => {
                   transition: { type: "spring", duration: 2, delay: 0.25 },
                 }}
               >
-                <BUTTON type="button" buttonType={"contrast"}>
-                  Get Started
-                </BUTTON>
+                <Link to="/sign-up" style={{ textDecoration: "none" }}>
+                  <BUTTON type="button" buttonType={"contrast"}>
+                    Get Started
+                  </BUTTON>
+                </Link>
               </motion.div>
             </motion.div>
             <motion.div
