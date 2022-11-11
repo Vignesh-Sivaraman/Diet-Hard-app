@@ -1,0 +1,81 @@
+.dashbox {
+  width: 75%;
+  background-color: #f6f6f6;
+  margin: 25px auto;
+  padding: 0;
+  border-radius: 1em;
+
+  .dash-title {
+    color: #f6f6f6;
+    font-weight: 500;
+    background-color: #0b5282;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1rem;
+    height: 30px;
+    border-radius: 1em 1em 0 0;
+    &.calories {
+      background-color: #0b5282;
+    }
+    &.water {
+      background-color: rgb(13, 143, 167);
+    }
+    &.weight {
+      background-color: rgb(182, 37, 175);
+    }
+    @media (max-width: 580px) {
+      font-size: 0.7rem;
+    }
+  }
+  .dashcontent-box {
+    p {
+      display: flex;
+      font-weight: bold;
+    }
+    .dash-data {
+      display: flex;
+      align-items: center;
+      padding-left: 16px;
+      .dash-value {
+        font-size: 2.4rem;
+        font-weight: bolder;
+        color: #85c400;
+        margin-right: 20px;
+        height: 60px;
+        @media (max-width: 580px) {
+          margin-top: 10px;
+          font-size: 1.85rem;
+        }
+      }
+      .entry-btn {
+        text-decoration: none;
+        display: inline-block;
+        .button-container {
+          height: 40px !important;
+          align-items: center;
+          @media (max-width: 580px) {
+            font-size: 12px;
+            min-width: 35px !important;
+            width: 125px !important;
+          }
+          &:hover {
+            background-image: linear-gradient(
+              90deg,
+              hsl(78deg 100% 95%) 0%,
+              hsl(81deg 61% 70%) 50%,
+              hsl(79deg 100% 38%) 100%
+            );
+          }
+        }
+      }
+    }
+    .dash-goal {
+      color: #666666;
+      b {
+        font-size: 1.5rem;
+      }
+    }
+  }
+}

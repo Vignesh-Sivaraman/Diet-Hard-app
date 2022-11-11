@@ -21,11 +21,11 @@ function TOPBAR() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link style={{ textDecoration: "none" }}>
+            <Link style={{ textDecoration: "none" }} to="/home">
               <span className="nav-link">Dashboard</span>
             </Link>
 
-            <Link style={{ textDecoration: "none" }}>
+            <Link style={{ textDecoration: "none" }} to="/home/mealplan">
               <span className="nav-link">Meal-Plan</span>
             </Link>
             <Link style={{ textDecoration: "none" }} to="/home/getrecipes">

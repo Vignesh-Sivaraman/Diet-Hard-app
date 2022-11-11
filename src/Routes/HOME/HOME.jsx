@@ -5,10 +5,10 @@ import "./HOME.scss";
 
 const HOME = () => {
   return (
-    <div className="home-main">
+    <div>
       <TOPBAR></TOPBAR>
 
-      <div className="outlet">
+      <div className="homecontent">
         <Outlet />
       </div>
     </div>

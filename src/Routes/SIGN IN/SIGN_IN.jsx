@@ -121,7 +121,7 @@ const SIGN_IN = () => {
               className="mb-1"
               style={{ textDecoration: "none" }}
             >
-              <BUTTON type="submit" buttonType={"white"}>
+              <BUTTON type="button" buttonType={"white"}>
                 sign up
               </BUTTON>
             </Link>

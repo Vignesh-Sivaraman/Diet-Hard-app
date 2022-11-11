@@ -25,10 +25,9 @@ const MEAL = ({ meal }) => {
 
   return (
     <div className="col-lg-4 meal">
-      <Card
-        className="text-center m-5 p-3"
-        style={{ width: "80%", minHeight: "525px" }}
-      >
+      <Card className="text-center m-5 p-3 meal-card">
+        <h3 className={meal.dishType}>{meal.dishType}</h3>
+        <hr />
         <Card.Title className="my-3 py-3" style={{ minHeight: "100px" }}>
           {meal.title}
         </Card.Title>
@@ -46,15 +45,9 @@ const MEAL = ({ meal }) => {
           <ListGroup.Item>Number of servings: {meal.servings}</ListGroup.Item>
         </ListGroup>
         <div className="recipebtn">
-          <a
-            href={meal.sourceUrl}
-            style={{ textDecoration: "none" }}
-            target="blank"
-          >
-            <BUTTON buttonType={"contrast"} href={meal.sourceUrl}>
-              Go to Recipe
-            </BUTTON>
-          </a>
+          <BUTTON buttonType={"contrast"} href={meal.sourceUrl}>
+            More Details
+          </BUTTON>
         </div>
       </Card>
     </div>

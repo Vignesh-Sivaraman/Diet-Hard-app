@@ -3,6 +3,7 @@ import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
 import CALENDAR from "./centralized components/CALENDAR/CALENDAR";
 import ADDITIONAL_INFO from "./Routes/ADDITIONAL INFO/ADDITIONAL_INFO";
+import DASHBOARD from "./Routes/DASHBOARD/DASHBOARD";
 import EMAIL_VERIFY from "./Routes/EMAIL VERIFY/EMAIL_VERIFY";
 import FORGOT_PASSWORD from "./Routes/FORGOT PASSWORD/FORGOT_PASSWORD";
 import GET_RECIPES from "./Routes/GET RECIPES/GET_RECIPES";
@@ -22,22 +23,25 @@ import SIGN_UP from "./Routes/SIGN UP/SIGN_UP";
 function App() {
   return (
     <Routes>
+      {/* user sign in, sign up, reset pass routes*/}
       <Route path="/" element={<LANDING_PAGE />} />
       <Route path="/sign-up" element={<SIGN_UP />} />
       <Route path="/:id/verify/:token" element={<EMAIL_VERIFY />} />
-
       <Route path="/sign-in" element={<SIGN_IN />} />
       <Route path="/forpass" element={<FORGOT_PASSWORD />} />
       <Route path="/forpass/:id/verify/:token" element={<PASSWORD_VERIFY />} />
       <Route path="/resetpass" element={<RESET_PASS />} />
-
+      {/* for test temproary*/}
       <Route path="/instantdiet" element={<INSTANT_DIET />} />
-
       <Route path="/calendar" element={<CALENDAR />} />
+
       <Route path="/additionalInfo" element={<ADDITIONAL_INFO />} />
+
+      {/* in-app routes*/}
       <Route path="/home" element={<HOME />}>
-        <Route index element={<GET_RECIPES />} />
+        <Route index element={<DASHBOARD />} />
         <Route path="mealplan" element={<MEAL_PLAN />} />
+        <Route path="getrecipes" element={<GET_RECIPES />} />
       </Route>
     </Routes>
   );

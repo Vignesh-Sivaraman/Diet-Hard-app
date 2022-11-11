@@ -12,4 +12,20 @@
     width: 50px;
     margin: auto;
   }
+  .meal-card {
+    width: 80%;
+    .Breakfast {
+      color: rgb(5, 103, 121);
+    }
+    .Lunch {
+      color: rgb(158, 106, 8);
+    }
+    .Dinner {
+      color: rgb(156, 9, 149);
+    }
+    @media (max-width: 1080px) {
+      width: 100%;
+      margin: 10px auto !important;
+    }
+  }
 }
