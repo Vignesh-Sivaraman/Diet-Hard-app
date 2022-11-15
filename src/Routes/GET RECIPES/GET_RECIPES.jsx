@@ -1,6 +1,6 @@
 import React from "react";
 import "./GET_RECIPES.scss";
-import { FormikProvider, useFormik, Field } from "formik";
+import { FormikProvider, useFormik } from "formik";
 
 const GET_RECIPES = () => {
   let dietTypes = [
@@ -15,8 +15,6 @@ const GET_RECIPES = () => {
   let veg = [true, false];
   const formik = useFormik({
     initialValues: {
-      user_name: "",
-      user_dob: "",
       dietType: "",
       cuisineType: "",
       mealType: "",
@@ -56,29 +54,9 @@ const GET_RECIPES = () => {
           >
             <div className="row">
               {/*userName*/}
-              <div className="form-outline mb-4">
-                <label>Username:</label>
-                <input
-                  className="inputbox"
-                  type="text"
-                  value={formik.values.user_name}
-                  onChange={formik.handleChange}
-                  name="user_name"
-                  required
-                />
-              </div>
+
               {/*dob*/}
-              <div className="form-outline mb-4">
-                <label>Date of Birth:</label>
-                <input
-                  className="inputbox"
-                  type="date"
-                  value={formik.values.user_dob}
-                  onChange={formik.handleChange}
-                  name="user_dob"
-                  required
-                />
-              </div>
+
               {/*calories*/}
               <div className="form-outline mt-3 mb-4">
                 <label>calories (optional):</label>

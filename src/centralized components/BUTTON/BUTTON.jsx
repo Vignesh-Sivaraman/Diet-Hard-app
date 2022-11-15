@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import "./BUTTON.scss";
 
 const BUTTON_TYPE_CLASSES = {

@@ -1,0 +1,20 @@
+.entrypage-home {
+  margin-top: 2rem;
+  .box {
+    width: 60%;
+    min-height: 75%;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    margin: auto;
+    border-radius: 1rem;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1)
+    );
+    backdrop-filter: blur(25px);
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    @media (max-width: 1080px) {
+      width: 95%;
+    }
+  }
+}

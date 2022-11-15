@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BUTTON from "../../centralized components/BUTTON/BUTTON";
+import BUTTON from "../../Centralized Components/BUTTON/BUTTON";
 import "./DASHCARD.scss";
 
 const DASHCARD = (props) => {
@@ -29,9 +29,10 @@ const DASHCARD = (props) => {
         <div className="col-lg-8 d-flex flex-column align-items-center justify-content-center ">
           <p> {props.ctype} Remaining for the day</p>
           <div className="dash-data">
-            <span className="dash-value">1800</span>
-            <Link className="entry-btn">
-              <BUTTON type="button" buttonType={"white"}>
+            <span className="dash-value">1800 {props.unit}</span>
+
+            <Link className="entry-btn" to="/home/addentry">
+              <BUTTON type="button" buttonType={"contrast"}>
                 Add Entry
               </BUTTON>
             </Link>

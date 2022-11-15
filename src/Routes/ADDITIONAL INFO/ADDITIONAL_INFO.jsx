@@ -1,27 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ADDITIONAL_INFO.scss";
 import { FormikProvider, useFormik, Field } from "formik";
+import { useNavigate } from "react-router-dom";
+import BUTTON from "../../Centralized Components/BUTTON/BUTTON";
+import axios from "axios";
+import { env } from "../../config/config";
 
 const ADDITIONAL_INFO = () => {
-  let dietTypes = [
-    "high-fiber",
-    "high-protein",
-    "low-fat",
-    "low-carb",
-    "balanced",
-  ];
-  let cuisineTypes = ["American", "Chinese", "Indian"];
-  let mealTypes = ["Breakfast", "Dinner", "Lunch"];
-  let veg = [true, false];
+  let navigate = useNavigate();
+  let userEmail = window.localStorage.getItem("userEmail");
+
+  useEffect(() => {
+    if (!window.localStorage.getItem("app-token")) {
+      alert("Please Login");
+      navigate("/");
+    }
+    if (window.localStorage.getItem("userDetailsReceived") === "true") {
+      alert("already entered");
+      navigate("/home");
+    }
+  }, []);
+
+  let veg = ["yes", "no"];
   const formik = useFormik({
     initialValues: {
-      user_name: "",
-      user_dob: "",
-      dietType: "",
-      cuisineType: "",
-      mealType: "",
-      veg: "",
-      calories: 1000,
+      userName: "",
+      userDob: "",
+      userWeight: "",
+      userTargetWeight: "",
+      userCalories: "",
+      userVeg: "",
     },
     // validate: (values) => {
     //   let errors = {};
@@ -34,19 +42,41 @@ const ADDITIONAL_INFO = () => {
     // },
     onSubmit: async (values) => {
       try {
-        console.log(values);
-      } catch (error) {
+        values.email = window.localStorage.getItem("userEmail");
+        let result = await axios.post(`${env.api}/users/userdetails`, values);
+        if (result.status === 200) {
+          window.localStorage.setItem(
+            "userDetailsReceived",
+            result.data.userDetailsReceived
+          );
+          alert(result.data.message);
+          navigate("/home/mealplan");
+        }
+      } catch (err) {
         alert(
-          `Error Code: ${error.response.status}- ${error.response.data.message}`
+          `Error Code: ${err.response.status}- ${err.response.data.message}`
         );
       }
     },
   });
   return (
     <div className="additionalInfo-main">
+      <div className="my-3 fw-bold text-primary">{userEmail}</div>
+      <span>
+        <BUTTON
+          type="button"
+          buttonType={"contrast"}
+          onClick={() => {
+            window.localStorage.clear();
+            navigate("/");
+          }}
+        >
+          Logout
+        </BUTTON>
+      </span>
       <div className="container box">
         <div className="title">
-          <h3>Choose the below option for food recipes</h3>
+          <h3>Let us Know about yourself and your goals</h3>
         </div>
         <FormikProvider value={formik}>
           <form
@@ -61,9 +91,9 @@ const ADDITIONAL_INFO = () => {
                 <input
                   className="inputbox"
                   type="text"
-                  value={formik.values.user_name}
+                  value={formik.values.userName}
                   onChange={formik.handleChange}
-                  name="user_name"
+                  name="userName"
                   required
                 />
               </div>
@@ -73,89 +103,61 @@ const ADDITIONAL_INFO = () => {
                 <input
                   className="inputbox"
                   type="date"
-                  value={formik.values.user_dob}
+                  value={formik.values.userDob}
                   onChange={formik.handleChange}
-                  name="user_dob"
+                  name="userDob"
+                  required
+                />
+              </div>
+              {/*Weight*/}
+              <div className="form-outline mt-3 mb-4">
+                <label>Weight(Kg)</label>
+                <input
+                  className="inputbox"
+                  type="number"
+                  value={formik.values.userWeight}
+                  onChange={formik.handleChange}
+                  name="userWeight"
+                  required
+                />
+              </div>
+              {/*Weight goal*/}
+              <div className="form-outline mt-3 mb-4">
+                <label>Target Weight:</label>
+                <input
+                  className="inputbox"
+                  type="number"
+                  value={formik.values.userTargetWeight}
+                  onChange={formik.handleChange}
+                  name="userTargetWeight"
                   required
                 />
               </div>
               {/*calories*/}
               <div className="form-outline mt-3 mb-4">
-                <label>calories (optional):</label>
+                <label>Calorie goal for a day(cal):</label>
                 <input
                   className="inputbox"
                   type="number"
-                  value={formik.values.calories}
+                  value={formik.values.userCalories}
                   onChange={formik.handleChange}
-                  name="calories"
+                  name="userCalories"
+                  required
                 />
               </div>
-              {/*dietType*/}
-              <div className="mt-4 mb-2">
-                <span className=" fs-5 text-primary">Diet-Type:</span>
-              </div>
-              {dietTypes.map((dietType, i) => {
-                return (
-                  <div className="col-lg-2" key={i}>
-                    <input
-                      onChange={formik.handleChange}
-                      type="radio"
-                      value={dietType}
-                      name="dietType"
-                      required
-                    />
-                    <span>{dietType}</span>
-                  </div>
-                );
-              })}
-              {/*cuisine Type*/}
-              <div className="mt-4 mb-2">
-                <span className=" fs-5 text-primary">Cuisine-Type:</span>
-              </div>
-              {cuisineTypes.map((cuisineType, i) => {
-                return (
-                  <div className="col-lg-2" key={i}>
-                    <input
-                      onChange={formik.handleChange}
-                      type="radio"
-                      value={cuisineType}
-                      name="cuisineType"
-                      required
-                    />
-                    <span>{cuisineType}</span>
-                  </div>
-                );
-              })}
-              {/*mealType*/}
-              <div className="mt-4 mb-2">
-                <span className=" fs-5 text-primary">Meal-Type:</span>
-              </div>
-              {mealTypes.map((mealType, i) => {
-                return (
-                  <div className="col-lg-2" key={i}>
-                    <input
-                      onChange={formik.handleChange}
-                      type="radio"
-                      value={mealType}
-                      name="mealType"
-                      required
-                    />
-                    <span>{mealType}</span>
-                  </div>
-                );
-              })}
+
               {/* isVeg */}
               <div className="mt-4 mb-2">
                 <span className=" fs-5 text-primary">Vegetarian:</span>
               </div>
               {veg.map((isveg, i) => {
                 return (
-                  <div className="col-lg-2" key={i}>
+                  <div className="col-lg-1" key={i}>
                     <input
                       onChange={formik.handleChange}
                       type="radio"
                       value={isveg}
-                      name="veg"
+                      name="userVeg"
                       required
                     />
                     <span>{`${isveg}`}</span>
@@ -166,7 +168,7 @@ const ADDITIONAL_INFO = () => {
               <div className="text-center text-lg-start my-2 pt-2">
                 <input
                   type={"submit"}
-                  value="Get recipe"
+                  value="submit"
                   className="btn btn-warning btn-lg"
                   style={{ paddingLeft: "2.5rem", paddingRight: "2.5rem" }}
                 />

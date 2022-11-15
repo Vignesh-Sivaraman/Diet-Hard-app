@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import TOPBAR from "../../Components/TOP BAR/TOPBAR";
-import "./HOME.scss";
 
 const HOME = () => {
+  useEffect(() => {}, []);
+
   return (
     <div>
       <TOPBAR></TOPBAR>

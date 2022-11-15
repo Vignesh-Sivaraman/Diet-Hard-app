@@ -4,7 +4,7 @@ import logo from "../../Assets/Images/Diet_Hard_Logo.svg";
 import { FormikProvider, useFormik } from "formik";
 import signInImage from "../../Assets/Images/sign_in.svg";
 import log from "../../Assets/Images/log.svg";
-import BUTTON from "../../centralized components/BUTTON/BUTTON";
+import BUTTON from "../../Centralized Components/BUTTON/BUTTON";
 import { Link, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import axios from "axios";
@@ -31,8 +31,18 @@ const SIGN_IN = () => {
         let loginData = await axios.post(`${env.api}/users/signin`, values);
 
         if (loginData.status === 200) {
+          console.log(loginData.data);
           window.localStorage.setItem("app-token", loginData.data.token);
-          navigate("/home");
+          window.localStorage.setItem("userEmail", loginData.data.userEmail);
+          window.localStorage.setItem(
+            "userDetailsReceived",
+            loginData.data.userDetailsReceived
+          );
+          if (loginData.data.userDetailsReceived) {
+            navigate("/home");
+          } else {
+            navigate("/additionalinfo");
+          }
         }
       } catch (err) {
         alert(

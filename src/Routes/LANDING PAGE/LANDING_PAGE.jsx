@@ -12,7 +12,7 @@ const ROTATIONAL_SLIDER = lazy(() =>
   import("../../Components/ROTATIONAL SLIDER/ROTATIONAL_SLIDER")
 );
 
-const BUTTON = lazy(() => import("../../centralized components/BUTTON/BUTTON"));
+const BUTTON = lazy(() => import("../../Centralized Components/BUTTON/BUTTON"));
 
 const LANDING_PAGE = () => {
   return (
@@ -35,7 +35,7 @@ const LANDING_PAGE = () => {
         <div className="container-fluid content">
           <div className="row flex-column-reverse flex-lg-row ">
             <motion.div
-              className="col-lg-6 description ms-5 ps-5"
+              className="col-lg-6 description"
               initial={{
                 scale: 0.1,
                 transition: { type: "spring", duration: 2 },

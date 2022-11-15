@@ -1,35 +1,19 @@
 .landing_page-main {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
   position: relative;
-  background-image: linear-gradient(
-    125deg,
-    hsl(156deg 43% 91%) 0%,
-    hsl(159deg 46% 91%) 8%,
-    hsl(162deg 49% 91%) 15%,
-    hsl(164deg 52% 91%) 23%,
-    hsl(158deg 52% 90%) 31%,
-    hsl(148deg 50% 88%) 38%,
-    hsl(134deg 45% 87%) 46%,
-    hsl(116deg 42% 87%) 54%,
-    hsl(100deg 44% 87%) 62%,
-    hsl(86deg 45% 88%) 69%,
-    hsl(73deg 42% 87%) 77%,
-    hsl(56deg 34% 83%) 85%,
-    hsl(45deg 35% 80%) 92%,
-    hsl(36deg 34% 78%) 100%
-  );
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  height: 100vh;
 
   .content {
-    position: relative;
-    top: 75px;
-    height: auto;
+    position: absolute;
+    top: 250px;
+    padding-left: 10rem;
+    @media (max-width: 1500px) {
+      padding-left: 5em;
+    }
 
     .description {
-      position: absolute;
-      top: 150px;
-      width: 50%;
       .mainDesc {
         font-size: 2rem;
         font-weight: bold;
@@ -44,9 +28,18 @@
     }
 
     .slider {
-      position: relative;
-      right: -92%;
-      top: 155px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      .rotational_slider-main {
+        position: absolute;
+        right: -18.5%;
+        top: 10%;
+
+        @media (max-width: 1500px) {
+          right: -30%;
+        }
+      }
     }
   }
 }
@@ -61,14 +54,21 @@
       background-color: #cae9d1;
     }
     .content {
+      padding-left: 0;
       .slider {
         position: relative;
-        top: -250px;
+        top: -350px;
         right: 0px;
         margin: auto;
         padding: auto !important;
+
         text-align: center;
         z-index: -1;
+        .rotational_slider-main {
+          position: initial;
+          right: 0%;
+          top: 0%;
+        }
       }
 
       .description {

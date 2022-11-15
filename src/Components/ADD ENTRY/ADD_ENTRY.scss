@@ -1,11 +1,11 @@
-.dashbox {
+.entrybox {
   width: 75%;
   background-color: #f6f6f6;
   margin: 25px auto;
   padding: 0;
   border-radius: 1em;
 
-  .dash-title {
+  .entry-title {
     color: #f6f6f6;
     font-weight: 500;
     background-color: #0b5282;
@@ -29,16 +29,19 @@
       font-size: 0.7rem;
     }
   }
-  .dashcontent-box {
+  .entrycontent-box {
     p {
       display: flex;
       font-weight: bold;
     }
-    .dash-data {
+    .myForm {
+      padding: 0;
+    }
+    .entry-data {
       display: flex;
       align-items: center;
       padding-left: 16px;
-      .dash-value {
+      .entry-value {
         font-size: 2.4rem;
         font-weight: bolder;
         color: #43e286;
@@ -70,7 +73,7 @@
         }
       }
     }
-    .dash-goal {
+    .entry-goal {
       color: #666666;
       b {
         font-size: 1.5rem;

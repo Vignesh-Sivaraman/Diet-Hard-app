@@ -1,21 +1,21 @@
 import React from "react";
-import DASHCARD from "../../Components/DASHCARD/DASHCARD";
-import "./DASHBOARD.scss";
+import "./ENTRY_PAGE.scss";
 import workout_timeimg from "../../Assets/Images/weight.svg";
 import calorieimg from "../../Assets/Images/calories.svg";
 import waterimg from "../../Assets/Images/water.svg";
+import ADD_ENTRY from "../../Components/ADD ENTRY/ADD_ENTRY";
 
-const DASHBOARD = () => {
+const ENTRY_PAGE = () => {
   return (
-    <div className="dashboard-home">
+    <div className="entrypage-home">
       <div className="container box">
-        <DASHCARD ctype={"calories"} unit={"cal"} dashicon={calorieimg} />
+        <ADD_ENTRY ctype={"calories"} unit={"cal"} dashicon={calorieimg} />
         <hr />
-        <DASHCARD ctype={"water"} unit={"ml"} dashicon={waterimg} />
+        <ADD_ENTRY ctype={"water"} unit={"ml"} dashicon={waterimg} />
         <hr />
-        <DASHCARD
+        <ADD_ENTRY
           ctype={"workout-time"}
-          unit={"mins"}
+          unit={"kg"}
           dashicon={workout_timeimg}
         />
       </div>
@@ -23,4 +23,4 @@ const DASHBOARD = () => {
   );
 };
 
-export default DASHBOARD;
+export default ENTRY_PAGE;

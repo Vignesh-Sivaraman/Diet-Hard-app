@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { Field, FormikProvider, useFormik } from "formik";
+import { FormikProvider, useFormik } from "formik";
 import { env } from "../../config/config";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 function FORGOT_PASSWORD() {
   let [isLoading, setIsLoading] = useState(false);

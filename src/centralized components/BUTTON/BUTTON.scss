@@ -11,11 +11,11 @@
   text-transform: uppercase;
   //   font-family: "Open Sans Condensed";
   font-weight: bolder;
-  border: 1px solid #06031e;
   border-radius: 25px;
   cursor: pointer;
   display: flex;
   justify-content: center;
+  border: none;
 
   &:hover {
     background-image: linear-gradient(
@@ -35,7 +35,6 @@
     transition: all 0.6s ease;
     transform: scale(1.1);
     transform-origin: center;
-    border: 1px solid #06031e;
   }
 
   &.contrast {
@@ -58,14 +57,12 @@
         hsl(117deg 55% 87%) 100%
       );
       color: #06031e;
-      border: 1px solid #06031e;
     }
   }
 
   &.white {
     background-color: white;
     color: #06031e;
-    border: 1px solid #06031e;
 
     &:hover {
       background-image: linear-gradient(

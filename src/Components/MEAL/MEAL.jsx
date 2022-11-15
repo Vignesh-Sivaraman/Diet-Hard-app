@@ -1,28 +1,9 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import BUTTON from "../../centralized components/BUTTON/BUTTON";
+import BUTTON from "../../Centralized Components/BUTTON/BUTTON";
 import "./MEAL.scss";
 
 const MEAL = ({ meal }) => {
-  // const [imageUrl, setImageUrl] = useState("");
-
-  // const getImage = async () => {
-  //   try {
-  //     let response = await axios.get(
-  //       `https://api.spoonacular.com/recipes/${meal.id}/information?apiKey=06775893738749e4ae344f157b2ba83c&includeNutrition=false`
-  //     );
-  //     setImageUrl(response.data.image);
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
-
-  // useEffect(() => {
-  //   getImage();
-  // }, [meal.id]);
-
   return (
     <div className="col-lg-4 meal">
       <Card className="text-center m-5 p-3 meal-card">

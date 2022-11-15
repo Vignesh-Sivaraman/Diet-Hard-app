@@ -1,10 +1,11 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { lazy } from "react";
 import { Route, Routes } from "react-router-dom";
-import CALENDAR from "./centralized components/CALENDAR/CALENDAR";
+import CALENDAR from "./Centralized Components/CALENDAR/CALENDAR";
+import CALORIES_ENTRY from "./Components/CALORIES ENTRY/CALORIES_ENTRY";
 import ADDITIONAL_INFO from "./Routes/ADDITIONAL INFO/ADDITIONAL_INFO";
 import DASHBOARD from "./Routes/DASHBOARD/DASHBOARD";
 import EMAIL_VERIFY from "./Routes/EMAIL VERIFY/EMAIL_VERIFY";
+import ENTRY_PAGE from "./Routes/ENTRYPAGE/ENTRY_PAGE";
 import FORGOT_PASSWORD from "./Routes/FORGOT PASSWORD/FORGOT_PASSWORD";
 import GET_RECIPES from "./Routes/GET RECIPES/GET_RECIPES";
 import HOME from "./Routes/HOME/HOME";
@@ -16,9 +17,6 @@ import PASSWORD_VERIFY from "./Routes/PASSWORD VERIFY/PASSWORD_VERIFY";
 import RESET_PASS from "./Routes/RESET PASS/RESET_PASS";
 import SIGN_IN from "./Routes/SIGN IN/SIGN_IN";
 import SIGN_UP from "./Routes/SIGN UP/SIGN_UP";
-// const LANDING_PAGE = lazy(() => import("./Routes/LANDING PAGE/LANDING_PAGER"));
-// const SIGN_IN = lazy(() => import("./Routes/SIGN IN/SIGN_IN"));
-// const SIGN_UP = lazy(() => import("./Routes/SIGN UP/SIGN_UP"));
 
 function App() {
   return (
@@ -41,6 +39,8 @@ function App() {
       <Route path="/home" element={<HOME />}>
         <Route index element={<DASHBOARD />} />
         <Route path="mealplan" element={<MEAL_PLAN />} />
+        <Route path="addentry" element={<ENTRY_PAGE />} />
+        <Route path="caloriesentry" element={<CALORIES_ENTRY />} />
         <Route path="getrecipes" element={<GET_RECIPES />} />
       </Route>
     </Routes>
