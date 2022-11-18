@@ -1,6 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
-import CALENDAR from "./Centralized Components/CALENDAR/CALENDAR";
 import CALORIES_ENTRY from "./Components/CALORIES ENTRY/CALORIES_ENTRY";
 import ADDITIONAL_INFO from "./Routes/ADDITIONAL INFO/ADDITIONAL_INFO";
 import DASHBOARD from "./Routes/DASHBOARD/DASHBOARD";
@@ -31,7 +30,6 @@ function App() {
       <Route path="/resetpass" element={<RESET_PASS />} />
       {/* for test temproary*/}
       <Route path="/instantdiet" element={<INSTANT_DIET />} />
-      <Route path="/calendar" element={<CALENDAR />} />
 
       <Route path="/additionalInfo" element={<ADDITIONAL_INFO />} />
 
