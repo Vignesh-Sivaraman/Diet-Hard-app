@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import BUTTON from "../../Centralized Components/BUTTON/BUTTON";
+import BUTTON from "../../CentralizedComponents/BUTTON/BUTTON";
 import "./DASHCARD.scss";
 
 const DASHCARD = (props) => {

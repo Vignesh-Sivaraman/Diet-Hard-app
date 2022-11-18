@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import "./ADDITIONAL_INFO.scss";
 import { FormikProvider, useFormik, Field } from "formik";
 import { useNavigate } from "react-router-dom";
-import BUTTON from "../../Centralized Components/BUTTON/BUTTON";
+import BUTTON from "../../CentralizedComponents/BUTTON/BUTTON";
 import axios from "axios";
 import { env } from "../../config/config";
 

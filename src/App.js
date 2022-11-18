@@ -1,6 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Route, Routes } from "react-router-dom";
-import CALENDAR from "./Centralized Components/CALENDAR/CALENDAR";
+import CALENDAR from "./CentralizedComponents/CALENDAR/CALENDAR";
 import CALORIES_ENTRY from "./Components/CALORIES ENTRY/CALORIES_ENTRY";
 import ADDITIONAL_INFO from "./Routes/ADDITIONAL INFO/ADDITIONAL_INFO";
 import DASHBOARD from "./Routes/DASHBOARD/DASHBOARD";
