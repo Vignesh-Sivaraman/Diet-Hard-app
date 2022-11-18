@@ -43,7 +43,11 @@ const ADDITIONAL_INFO = () => {
     onSubmit: async (values) => {
       try {
         values.email = window.localStorage.getItem("userEmail");
-        let result = await axios.post(`${env.api}/users/userdetails`, values);
+        let result = await axios.post(`${env.api}/users/userdetails`, values, {
+          headers: {
+            Authorization: window.localStorage.getItem("app-token"),
+          },
+        });
         if (result.status === 200) {
           window.localStorage.setItem(
             "userDetailsReceived",

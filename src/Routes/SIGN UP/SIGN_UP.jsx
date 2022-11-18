@@ -27,6 +27,8 @@ const SIGN_UP = () => {
       return errors;
     },
     onSubmit: async (values) => {
+      let todayDate = new Date().toISOString().slice(0, 10);
+      values.createdDate = todayDate;
       if (values.password !== values.confirmPassword) {
         alert("passwords do not match");
         return;

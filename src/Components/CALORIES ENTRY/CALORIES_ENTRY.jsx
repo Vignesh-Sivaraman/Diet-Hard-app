@@ -1,8 +1,12 @@
 import React, { useEffect, useState } from "react";
 import "./CALORIES_ENTRY.scss";
 import { FormikProvider, useFormik } from "formik";
+import axios from "axios";
+import { env } from "../../config/config";
+import { useNavigate } from "react-router-dom";
 
 const CALORIES_ENTRY = () => {
+  let navigate = useNavigate();
   const [isManual, setisManual] = useState(false);
   const [currentDay, setCurrentDay] = useState("");
   const [isDatePicked, setIsDatePicked] = useState(false);
@@ -312,6 +316,9 @@ const CALORIES_ENTRY = () => {
       ? Math.round(weeklyMeals?.[currentDay].nutrients.calories / 3)
       : "",
     mealType: "",
+    mealTitle: currentDay
+      ? weeklyMeals?.[currentDay].meals[mealTime].title
+      : "",
     protein: currentDay
       ? Math.round(weeklyMeals?.[currentDay].nutrients.protein / 3)
       : "",
@@ -335,6 +342,7 @@ const CALORIES_ENTRY = () => {
   useEffect(() => {
     if (isManual)
       setInitial({
+        mealTitle: "",
         calories: "0",
         mealType: "",
         protein: "0",
@@ -345,6 +353,9 @@ const CALORIES_ENTRY = () => {
       setInitial({
         calories: currentDay
           ? Math.round(weeklyMeals?.[currentDay].nutrients.calories / 3)
+          : "",
+        mealTitle: currentDay
+          ? weeklyMeals?.[currentDay].meals[mealTime].title
           : "",
         mealType: "",
         protein: currentDay
@@ -360,7 +371,7 @@ const CALORIES_ENTRY = () => {
     }
   }, [isDatePicked, currentDay, isManual]);
 
-  let mealTypes = ["Breakfast", "Dinner", "Lunch"];
+  let mealTypes = ["Breakfast", "Lunch", "Dinner"];
   const formik = useFormik({
     initialValues: initial,
     // validate: (values) => {
@@ -377,7 +388,20 @@ const CALORIES_ENTRY = () => {
       try {
         values.mealType = currentMeal;
         values.entryDate = currentDate;
-        console.log(values);
+        values.email = window.localStorage.getItem("userEmail");
+        let result = await axios.post(`${env.api}/usercalories/`, values, {
+          headers: {
+            Authorization: window.localStorage.getItem("app-token"),
+          },
+        });
+        if (result.status === 200) {
+          window.localStorage.setItem(
+            "userDetailsReceived",
+            result.data.userDetailsReceived
+          );
+          alert(result.data.message);
+          navigate("/home");
+        }
       } catch (error) {
         alert(
           `Error Code: ${error.response.status}- ${error.response.data.message}`
@@ -477,6 +501,19 @@ const CALORIES_ENTRY = () => {
                     </div>
                   </div>
                 )}
+                {/*mealTitle*/}
+                <div className="form-outline mb-4">
+                  <label>Meal Title:</label>
+                  <input
+                    className="inputbox"
+                    type="text"
+                    value={formik.values.mealTitle}
+                    onChange={formik.handleChange}
+                    name="mealTitle"
+                    required
+                    disabled={!isManual}
+                  />
+                </div>
 
                 {/*calories*/}
                 <div className="form-outline mb-4">

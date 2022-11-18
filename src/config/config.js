@@ -1,5 +1,5 @@
 export const env = {
-  api: "https://diet-hard-server.herokuapp.com",
+  api: "http://localhost:3005",
 };
 
 // "http://localhost:3005"

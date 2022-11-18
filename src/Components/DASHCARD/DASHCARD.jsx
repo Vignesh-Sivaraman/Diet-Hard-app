@@ -1,15 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import BUTTON from "../../Centralized Components/BUTTON/BUTTON";
 import "./DASHCARD.scss";
 
 const DASHCARD = (props) => {
+  useEffect(() => {}, []);
+
   return (
     <div className="dashbox container">
       <div className={`dash-title ${props.ctype}`}>
         <span> Your Daily summary</span>
         <span className="topic">
-          <span>DAY STREAK:</span> 10000
+          <span>DAY STREAK:</span> 0
         </span>
       </div>
 
@@ -29,9 +31,11 @@ const DASHCARD = (props) => {
         <div className="col-lg-8 d-flex flex-column align-items-center justify-content-center ">
           <p> {props.ctype} Remaining for the day</p>
           <div className="dash-data">
-            <span className="dash-value">1800 {props.unit}</span>
+            <span className="dash-value">
+              {props.remaining} {props.unit}
+            </span>
 
-            <Link className="entry-btn" to="/home/addentry">
+            <Link className="entry-btn" to={`/home/${props.page}`}>
               <BUTTON type="button" buttonType={"contrast"}>
                 Add Entry
               </BUTTON>
@@ -39,7 +43,7 @@ const DASHCARD = (props) => {
           </div>
 
           <span className="dash-goal">
-            Your goal: <b>{1000}</b> {props.unit}
+            Your goal: <b>{props.goal}</b> {props.unit}
           </span>
         </div>
       </div>
