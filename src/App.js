@@ -9,6 +9,7 @@ import FORGOT_PASSWORD from "./Routes/FORGOT PASSWORD/FORGOT_PASSWORD";
 import GET_RECIPES from "./Routes/GET RECIPES/GET_RECIPES";
 import HOME from "./Routes/HOME/HOME";
 import INSTANT_DIET from "./Routes/INSTANT DIET/INSTANT_DIET";
+import CALENDAR from "./CentralizedComponents/CALENDAR/CALENDAR";
 
 import LANDING_PAGE from "./Routes/LANDING PAGE/LANDING_PAGE";
 import MEAL_PLAN from "./Routes/MEAL PLAN/MEAL_PLAN";
@@ -32,6 +33,8 @@ function App() {
       <Route path="/instantdiet" element={<INSTANT_DIET />} />
 
       <Route path="/additionalInfo" element={<ADDITIONAL_INFO />} />
+
+      <Route path="/calendar" element={<CALENDAR />} />
 
       {/* in-app routes*/}
       <Route path="/home" element={<HOME />}>
