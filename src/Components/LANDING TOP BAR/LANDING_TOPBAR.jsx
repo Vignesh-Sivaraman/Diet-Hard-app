@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import { Link } from "react-router-dom";
 import logo from "../../Assets/Images/Diet_Hard_Logo.svg";
-import BUTTON from "../../CentralizedComponents/BUTTON/BUTTON";
+import BUTTON from "../../Centralized_Components/BUTTON/BUTTON";
 import "./LANDING_TOPBAR.scss";
 
 function LANDING_TOPBAR() {

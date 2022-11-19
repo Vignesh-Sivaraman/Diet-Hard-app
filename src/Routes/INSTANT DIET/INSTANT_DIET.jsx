@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import BUTTON from "../../CentralizedComponents/BUTTON/BUTTON";
+import BUTTON from "../../Centralized_Components/BUTTON/BUTTON";
 import MEAL_LIST from "../../Components/MEAL LIST/MEAL_LIST";
 import "./INSTANT_DIET.scss";
 

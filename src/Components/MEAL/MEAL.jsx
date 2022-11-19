@@ -1,6 +1,6 @@
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
-import BUTTON from "../../CentralizedComponents/BUTTON/BUTTON";
+import BUTTON from "../../Centralized_Components/BUTTON/BUTTON";
 import "./MEAL.scss";
 
 const MEAL = ({ meal }) => {

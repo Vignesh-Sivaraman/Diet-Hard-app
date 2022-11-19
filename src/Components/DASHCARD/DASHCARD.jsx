@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import BUTTON from "../../CentralizedComponents/BUTTON/BUTTON";
+import BUTTON from "../../Centralized_Components/BUTTON/BUTTON";
 import "./DASHCARD.scss";
 
 const DASHCARD = (props) => {
@@ -9,9 +9,13 @@ const DASHCARD = (props) => {
   return (
     <div className="dashbox container">
       <div className={`dash-title ${props.ctype}`}>
-        <span> Your Daily summary</span>
+        <span>
+          {" "}
+          Your Daily summary {`(${new Date().toISOString().slice(0, 10)})`}
+        </span>
         <span className="topic">
-          <span>DAY STREAK:</span> 0
+          <span>DAILY GOAL STATUS:</span>
+          <span className={`status ${props.status}`}> {props.status}</span>
         </span>
       </div>
 

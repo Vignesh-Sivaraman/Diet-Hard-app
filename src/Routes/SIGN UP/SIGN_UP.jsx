@@ -1,10 +1,10 @@
 import "./SIGN_UP.scss";
-import React, { useState } from "react";
+import React from "react";
 import logo from "../../Assets/Images/Diet_Hard_Logo.svg";
 import { FormikProvider, useFormik } from "formik";
 import signInImage from "../../Assets/Images/sign_in.svg";
 import log from "../../Assets/Images/log.svg";
-import BUTTON from "../../CentralizedComponents/BUTTON/BUTTON";
+import BUTTON from "../../Centralized_Components/BUTTON/BUTTON";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { env } from "../../config/config";

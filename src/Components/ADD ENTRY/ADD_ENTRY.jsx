@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import BUTTON from "../../CentralizedComponents/BUTTON/BUTTON";
+import BUTTON from "../../Centralized_Components/BUTTON/BUTTON";
 import "./ADD_ENTRY.scss";
 import { FormikProvider, useFormik } from "formik";
 

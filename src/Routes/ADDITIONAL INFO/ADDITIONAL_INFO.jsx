@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import "./ADDITIONAL_INFO.scss";
-import { FormikProvider, useFormik, Field } from "formik";
+import { FormikProvider, useFormik } from "formik";
 import { useNavigate } from "react-router-dom";
-import BUTTON from "../../CentralizedComponents/BUTTON/BUTTON";
+import BUTTON from "../../Centralized_Components/BUTTON/BUTTON";
 import axios from "axios";
 import { env } from "../../config/config";
 
@@ -21,7 +21,6 @@ const ADDITIONAL_INFO = () => {
     }
   }, []);
 
-  let veg = ["yes", "no"];
   const formik = useFormik({
     initialValues: {
       userName: "",
@@ -29,17 +28,9 @@ const ADDITIONAL_INFO = () => {
       userWeight: "",
       userTargetWeight: "",
       userCalories: "",
-      userVeg: "",
+      userWater: "",
+      userWorkout: "",
     },
-    // validate: (values) => {
-    //   let errors = {};
-    //   for (let keys in values) {
-    //     if (values[keys] === "") {
-    //       errors[keys] = `Please Enter ${keys}`;
-    //     }
-    //   }
-    //   return errors;
-    // },
     onSubmit: async (values) => {
       try {
         values.email = window.localStorage.getItem("userEmail");
@@ -149,26 +140,30 @@ const ADDITIONAL_INFO = () => {
                   required
                 />
               </div>
-
-              {/* isVeg */}
-              <div className="mt-4 mb-2">
-                <span className=" fs-5 text-primary">Vegetarian:</span>
+              {/*water*/}
+              <div className="form-outline mt-3 mb-4">
+                <label>Water conssumption goal for a day(ml):</label>
+                <input
+                  className="inputbox"
+                  type="number"
+                  value={formik.values.userWater}
+                  onChange={formik.handleChange}
+                  name="userWater"
+                  required
+                />
               </div>
-              {veg.map((isveg, i) => {
-                return (
-                  <div className="col-lg-1" key={i}>
-                    <input
-                      onChange={formik.handleChange}
-                      type="radio"
-                      value={isveg}
-                      name="userVeg"
-                      required
-                    />
-                    <span>{`${isveg}`}</span>
-                  </div>
-                );
-              })}
-
+              {/*workout*/}
+              <div className="form-outline mt-3 mb-4">
+                <label>Workout goal for a day(mins):</label>
+                <input
+                  className="inputbox"
+                  type="number"
+                  value={formik.values.userWorkout}
+                  onChange={formik.handleChange}
+                  name="userWorkout"
+                  required
+                />
+              </div>
               <div className="text-center text-lg-start my-2 pt-2">
                 <input
                   type={"submit"}

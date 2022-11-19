@@ -9,7 +9,7 @@ import FORGOT_PASSWORD from "./Routes/FORGOT PASSWORD/FORGOT_PASSWORD";
 import GET_RECIPES from "./Routes/GET RECIPES/GET_RECIPES";
 import HOME from "./Routes/HOME/HOME";
 import INSTANT_DIET from "./Routes/INSTANT DIET/INSTANT_DIET";
-import CALENDAR from "./CentralizedComponents/CALENDAR/CALENDAR";
+import CALENDAR from "./Centralized_Components/CALENDAR/CALENDAR";
 
 import LANDING_PAGE from "./Routes/LANDING PAGE/LANDING_PAGE";
 import MEAL_PLAN from "./Routes/MEAL PLAN/MEAL_PLAN";
@@ -17,6 +17,8 @@ import PASSWORD_VERIFY from "./Routes/PASSWORD VERIFY/PASSWORD_VERIFY";
 import RESET_PASS from "./Routes/RESET PASS/RESET_PASS";
 import SIGN_IN from "./Routes/SIGN IN/SIGN_IN";
 import SIGN_UP from "./Routes/SIGN UP/SIGN_UP";
+import WATER_ENTRY from "./Components/WATER ENTRY/WATER_ENTRY";
+import WORKOUT_ENTRY from "./Components/WORKOUT ENTRY/WORKOUT_ENTRY";
 
 function App() {
   return (
@@ -42,6 +44,8 @@ function App() {
         <Route path="mealplan" element={<MEAL_PLAN />} />
         <Route path="addentry" element={<ENTRY_PAGE />} />
         <Route path="caloriesentry" element={<CALORIES_ENTRY />} />
+        <Route path="waterentry" element={<WATER_ENTRY />} />
+        <Route path="workoutentry" element={<WORKOUT_ENTRY />} />
         <Route path="getrecipes" element={<GET_RECIPES />} />
       </Route>
     </Routes>

@@ -12,7 +12,7 @@ const ROTATIONAL_SLIDER = lazy(() =>
   import("../../Components/ROTATIONAL SLIDER/ROTATIONAL_SLIDER")
 );
 
-const BUTTON = lazy(() => import("../../CentralizedComponents/BUTTON/BUTTON"));
+const BUTTON = lazy(() => import("../../Centralized_Components/BUTTON/BUTTON"));
 
 const LANDING_PAGE = () => {
   return (

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./WATER_ENTRY.scss";
+import "./WORKOUT_ENTRY.scss";
 import { FormikProvider, useFormik } from "formik";
 import axios from "axios";
 import { env } from "../../config/config";
 import { useNavigate } from "react-router-dom";
 
-const WATER_ENTRY = () => {
+const WORKOUT_ENTRY = () => {
   let navigate = useNavigate();
   useEffect(() => {
     if (!window.localStorage.getItem("app-token")) {
@@ -17,7 +17,7 @@ const WATER_ENTRY = () => {
   const [currentDate, setCurrentDate] = useState("");
   const formik = useFormik({
     initialValues: {
-      waterQty: "",
+      workoutTime: "",
     },
 
     enableReinitialize: true,
@@ -25,7 +25,7 @@ const WATER_ENTRY = () => {
       try {
         values.entryDate = currentDate;
         values.email = window.localStorage.getItem("userEmail");
-        let result = await axios.post(`${env.api}/userwater/`, values, {
+        let result = await axios.post(`${env.api}/userworkout/`, values, {
           headers: {
             Authorization: window.localStorage.getItem("app-token"),
           },
@@ -42,7 +42,7 @@ const WATER_ENTRY = () => {
     },
   });
   return (
-    <div className="waterentry-main">
+    <div className="workoutentry-main">
       <div className="container box">
         <div className="title">
           <h3>Please fill the below details</h3>
@@ -78,13 +78,13 @@ const WATER_ENTRY = () => {
               <div className="row">
                 {/*calories*/}
                 <div className="form-outline mb-4">
-                  <label>consumed water (ml):</label>
+                  <label>Workout Time (mins):</label>
                   <input
                     className="inputbox"
                     type="number"
-                    value={formik.values.waterQty}
+                    value={formik.values.workoutTime}
                     onChange={formik.handleChange}
-                    name="waterQty"
+                    name="workoutTime"
                     required
                   />
                 </div>
@@ -107,4 +107,4 @@ const WATER_ENTRY = () => {
   );
 };
 
-export default WATER_ENTRY;
+export default WORKOUT_ENTRY;

@@ -20,13 +20,22 @@
       background-color: #0b5282;
     }
     &.water {
-      background-color: rgb(13, 143, 167);
+      background-color: rgb(7, 86, 100);
     }
     &.workout-time {
-      background-color: rgb(182, 37, 175);
+      background-color: rgb(47, 18, 207);
     }
     @media (max-width: 580px) {
       font-size: 0.7rem;
+    }
+    .status {
+      &.Pending {
+        color: rgb(255, 183, 49);
+      }
+      &.Achieved {
+        color: rgb(127, 236, 127);
+        font-weight: bold;
+      }
     }
   }
   .dashcontent-box {
@@ -45,8 +54,8 @@
         margin-right: 20px;
         height: 60px;
         @media (max-width: 580px) {
-          margin-top: 10px;
-          font-size: 1.85rem;
+          margin-top: 25px;
+          font-size: 1.2rem;
         }
       }
       .entry-btn {

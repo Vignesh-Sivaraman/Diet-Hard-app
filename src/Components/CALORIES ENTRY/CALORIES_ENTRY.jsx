@@ -6,6 +6,13 @@ import { env } from "../../config/config";
 import { useNavigate } from "react-router-dom";
 
 const CALORIES_ENTRY = () => {
+  useEffect(() => {
+    if (!window.localStorage.getItem("app-token")) {
+      alert("Please Login");
+      navigate("/");
+    }
+  }, []);
+
   let navigate = useNavigate();
   const [isManual, setisManual] = useState(false);
   const [currentDay, setCurrentDay] = useState("");
@@ -374,15 +381,6 @@ const CALORIES_ENTRY = () => {
   let mealTypes = ["Breakfast", "Lunch", "Dinner"];
   const formik = useFormik({
     initialValues: initial,
-    // validate: (values) => {
-    //   let errors = {};
-    //   for (let keys in values) {
-    //     if (values[keys] === "") {
-    //       errors[keys] = `Please Enter ${keys}`;
-    //     }
-    //   }
-    //   return errors;
-    // },
     enableReinitialize: true,
     onSubmit: async (values) => {
       try {
@@ -395,10 +393,6 @@ const CALORIES_ENTRY = () => {
           },
         });
         if (result.status === 200) {
-          window.localStorage.setItem(
-            "userDetailsReceived",
-            result.data.userDetailsReceived
-          );
           alert(result.data.message);
           navigate("/home");
         }
