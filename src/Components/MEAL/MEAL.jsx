@@ -1,9 +1,11 @@
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
+import { useNavigate } from "react-router-dom";
 import BUTTON from "../../Centralized_Components/BUTTON/BUTTON";
 import "./MEAL.scss";
 
 const MEAL = ({ meal }) => {
+  let navigate = useNavigate();
   return (
     <div className="col-lg-4 meal">
       <Card className="text-center m-5 p-3 meal-card">
@@ -26,7 +28,13 @@ const MEAL = ({ meal }) => {
           <ListGroup.Item>Number of servings: {meal.servings}</ListGroup.Item>
         </ListGroup>
         <div className="recipebtn">
-          <BUTTON buttonType={"contrast"} href={meal.sourceUrl}>
+          <BUTTON
+            buttonType={"contrast"}
+            onClick={() => {
+              window.localStorage.setItem("mealdetails", JSON.stringify(meal));
+              navigate("/home/mealdetails");
+            }}
+          >
             More Details
           </BUTTON>
         </div>

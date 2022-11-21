@@ -1,0 +1,55 @@
+.aboutus-home {
+  //   margin-top: 2rem;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  .box {
+    width: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    margin: auto;
+    border-radius: 1rem;
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0.1)
+    );
+    backdrop-filter: blur(25px);
+
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+    @media (max-width: 1080px) {
+      width: 95%;
+    }
+    .general {
+      line-height: 2;
+      font-size: 1.5rem;
+      color: rgb(3, 70, 70);
+    }
+    .disclaimer {
+      line-height: 1;
+      margin: 10px auto;
+      font-size: 1.25rem;
+      color: red;
+    }
+    .linkbtn {
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      a {
+        margin: 20px 10px;
+      }
+    }
+    .back {
+      .button-container {
+        background-color: rgb(56, 43, 241);
+        color: white;
+        &:hover {
+          background-color: rgb(56, 43, 241) !important;
+          background-image: none !important;
+        }
+      }
+    }
+  }
+}

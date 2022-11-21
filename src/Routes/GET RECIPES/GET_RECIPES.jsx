@@ -1,8 +1,12 @@
 import React from "react";
 import "./GET_RECIPES.scss";
 import { FormikProvider, useFormik } from "formik";
+import { env } from "../../config/config";
+import { useNavigate } from "react-router-dom";
 
 const GET_RECIPES = () => {
+  let navigate = useNavigate();
+
   let dietTypes = [
     "high-fiber",
     "high-protein",
@@ -21,18 +25,13 @@ const GET_RECIPES = () => {
       veg: "",
       calories: 1000,
     },
-    // validate: (values) => {
-    //   let errors = {};
-    //   for (let keys in values) {
-    //     if (values[keys] === "") {
-    //       errors[keys] = `Please Enter ${keys}`;
-    //     }
-    //   }
-    //   return errors;
-    // },
+
     onSubmit: async (values) => {
       try {
-        console.log(values);
+        let vegOption = values.veg === "true" ? "&health=vegetarian" : "";
+        let tempUrl = `diet=${values.dietType}${vegOption}&cuisineType=${values.cuisineType}&mealType=${values.mealType}&calories=${values.calories}`;
+        window.localStorage.setItem("depth", tempUrl);
+        navigate("/home/recipe");
       } catch (error) {
         alert(
           `Error Code: ${error.response.status}- ${error.response.data.message}`

@@ -1,12 +1,13 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../Assets/Images/Diet_Hard_Logo.svg";
 import BUTTON from "../../Centralized_Components/BUTTON/BUTTON";
 import "./LANDING_TOPBAR.scss";
 
 function LANDING_TOPBAR() {
+  let navigate = useNavigate();
   return (
     <Navbar bg="transparent" expand="lg">
       <Container>
@@ -21,8 +22,13 @@ function LANDING_TOPBAR() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link>About us</Nav.Link>
-            <Nav.Link>Instant Diet</Nav.Link>
+            <Nav.Link
+              onClick={() => {
+                navigate("/aboutus");
+              }}
+            >
+              About us
+            </Nav.Link>
             <div className="topbtn">
               <Link to="/sign-in" style={{ textDecoration: "none" }}>
                 <BUTTON type="button" buttonType={"contrast"}>

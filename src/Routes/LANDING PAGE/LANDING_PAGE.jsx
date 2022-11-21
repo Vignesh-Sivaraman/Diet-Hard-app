@@ -46,14 +46,13 @@ const LANDING_PAGE = () => {
               }}
             >
               <div className="mainDesc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do.
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Welcome to Diet Hard, a one place solution for Your personal
+                diet care.
               </div>
               <p className="addDesc">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Cursus sit amet dictum sit amet justo donec. Lacinia at quis
-                risus sed vulputate odio.
+                Here At Diet Hard, We focus on a single platform solution to
+                tract your diet and fitness goals. So, Lets begin your
+                prosperous health journey
               </p>
               <motion.div
                 initial={{
